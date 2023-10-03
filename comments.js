@@ -76,4 +76,12 @@ client.connect(function(err) {
         collection.updateOne({_id: mongodb.ObjectId(id)}, {$set: newComment}, function(err, result) {
             if (err) {
                 console.log('Unable to update comment');
-                throw
+                throw err;
+            }
+            console.log('Updated comment');
+            res.status(200).send('Comment updated');
+        }
+        );
+    }
+    );
+});
